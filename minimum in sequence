@@ -1,0 +1,46 @@
+//
+//  
+//  
+//  Created by Tarlan Askaruly.
+//  Copyright (c) 2018 Tarlan Askaruly. All rights reserved.
+//
+#include <bits/stdc++.h>
+using namespace std;
+
+long long n, a[2000], t[20000], l, r, m, inf = 10005000000;
+void build(int v, int L, int R){
+  if(L == R){
+    t[v] = a[L];  
+    return;
+  }
+  int mid = (L + R) / 2;
+  build(v * 2, L, mid);
+  build(v * 2 + 1, mid + 1, R);
+  t[v] = min(t[v * 2], t[v * 2 + 1]);
+}
+
+int get_min(int v, int L, int R, int l, int r){
+  if(l <= L && R <= r){
+    return t[v];
+  }
+  if(R < l || L > r){
+    return inf;     
+  }
+  int mid = (L + R) / 2;
+  return min(get_min(v * 2, L, mid, l, r), get_min(v * 2 + 1, mid + 1, R, l, r));
+}
+int main(){
+  freopen("stupid_rmq.in", "r", stdin);
+  freopen("stupid_rmq.out", "w", stdout);
+  cin >> n;
+  for(int i = 1; i <= n; i++){
+    cin >> a[i];
+  }
+  build(1, 1, n);
+  cin >> m;
+  for(int i = 1; i <= m; i++){
+    cin >> l >> r;
+    cout << get_min(1, 1, n, l, r) << endl;
+  }
+  return 0;
+}
