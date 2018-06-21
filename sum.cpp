@@ -1,8 +1,8 @@
 //
-//  Simple calculator
-//  About 1 hour of work
+//  
+//  
 //  Created by Tarlan Askaruly.
-//  Copyright (c) 2017 Tarlan Askaruly. All rights reserved.
+//  Copyright (c) 2018 Tarlan Askaruly. All rights reserved.
 //
 #include <bits/stdc++.h>             
 using namespace std;
