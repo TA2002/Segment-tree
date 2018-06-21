@@ -1,0 +1,1 @@
+These algorithms allow to find sum of elements, minimum element of array in any interval quickly. They can be used in any spheres.
